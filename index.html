@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Loading</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:#0a0a0a;
+    font-family:Segoe UI, Arial, sans-serif;
+}
+
+/* 🔴 Header: UPDATE LOADING */
+.header{
+    font-size:clamp(40px,10vw,100px); /* responsive font fits any screen */
+    font-weight:900;
+    color:#ff0000;
+    text-align:center;
+    text-shadow:0 0 25px rgba(255,0,0,0.8), 0 0 50px rgba(255,0,0,0.5);
+    animation:zoomPulse 1.2s infinite;
+    margin-bottom:30px;
+    white-space:nowrap; /* no line break */
+}
+
+@keyframes zoomPulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+/* 🔴 Center Red Box */
+.update-box{
+    background:linear-gradient(145deg,#ff0000,#990000);
+    border-radius:25px;
+    width:90%;
+    max-width:900px;
+    padding:20px 15px;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    position:relative;
+    box-shadow:0 0 40px rgba(255,0,0,0.7), inset 0 0 20px rgba(255,255,255,0.1);
+    overflow:hidden;
+}
+
+/* Running text inside box */
+.update-text{
+    font-size:clamp(18px,6vw,40px); /* responsive and fits all screens */
+    font-weight:700;
+    color:#fff;
+    white-space:nowrap; /* no wrap */
+    text-shadow:0 0 12px rgba(255,255,255,0.7);
+    display:inline-block;
+    padding-left:100%; /* start off screen */
+    animation:marquee 12s linear infinite;
+}
+
+/* Marquee animation */
+@keyframes marquee{
+    0%{transform:translateX(0%);}
+    100%{transform:translateX(-100%);}
+}
+
+/* Optional shine effect inside box */
+.update-box::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:50%;
+    height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+    animation:shine 4s infinite;
+}
+
+@keyframes shine{
+    0%{left:-100%;}
+    100%{left:100%;}
+}
+
+/* ⚠️ Bottom Warning */
+.warning{
+    position:fixed;
+    bottom:30px;
+    font-size:clamp(60px,15vw,150px); /* responsive big warning */
+    font-weight:900;
+    color:#ff0000;
+    text-shadow:0 0 35px rgba(255,0,0,0.8), 0 0 70px rgba(255,0,0,0.5);
+    animation:pulseWarning 1s infinite;
+}
+
+@keyframes pulseWarning{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.25);}
+    100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔴 Header -->
+<div class="header">UPDATE LOADING</div>
+
+<!-- 🔴 Center Red Box with running text -->
+<div class="update-box">
+    <div class="update-text">
+        Installing Premium Features • Optimizing Performance • Waiting for new Update 
+    </div>
+</div>
+
+<!-- ⚠️ Bottom Warning -->
+<div class="warning">⚠</div>
+
+</body>
+</html>
